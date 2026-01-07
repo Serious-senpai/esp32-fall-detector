@@ -1,0 +1,23 @@
+# Reference: https://docs.docker.com/reference/compose-file/
+name: esp32-fall-detector
+
+services:
+  postgres:
+    container_name: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: default
+    hostname: postgres
+    image: postgres:16.10-alpine
+    restart: unless-stopped
+
+  devcontainer:
+    build:
+      context: ../..
+      dockerfile: .devcontainer/codespaces/Dockerfile
+    command: bash -c "sleep infinity"
+    container_name: devcontainer
+    volumes:
+      - ../..:/workspaces/esp32-fall-detector
+    working_dir: /workspaces/esp32-fall-detector

@@ -1,0 +1,27 @@
+# Reference: https://docs.docker.com/reference/compose-file/
+name: esp32-fall-detector
+
+services:
+  postgres:
+    container_name: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: default
+    hostname: postgres
+    image: postgres:16.10-alpine
+    restart: unless-stopped
+
+  api-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: uvicorn server:app --host 0.0.0.0 --port 12110
+    container_name: api-server
+    depends_on:
+      - postgres
+    environment:
+      - DISCORD_BOT_TOKEN=${DISCORD_BOT_TOKEN}
+    ports:
+      - "12110:12110"
+    working_dir: /app

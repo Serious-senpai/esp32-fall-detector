@@ -1,0 +1,31 @@
+{
+    "name": "codespaces",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-azuretools.vscode-docker",
+                "ms-python.autopep8",
+                "ms-python.mypy-type-checker",
+                "ms-python.python",
+                "wokwi.wokwi-vscode"
+            ],
+            "settings": {
+                "autopep8.cwd": "${containerWorkspaceFolder}",
+                "editor.formatOnSave": true,
+                "editor.tabSize": 4,
+                "extensions.ignoreRecommendations": false,
+                "files.insertFinalNewline": true,
+                "git.autorefresh": true,
+                "git.enabled": true,
+                "python.analysis.typeCheckingMode": "standard",
+                "python.defaultInterpreterPath": "/venv/bin/python"
+            }
+        }
+    },
+    "features": {
+        "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+    },
+    "dockerComposeFile": "compose.yml",
+    "service": "devcontainer",
+    "workspaceFolder": "/workspaces/esp32-fall-detector"
+}
