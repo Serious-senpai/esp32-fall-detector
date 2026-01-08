@@ -10,7 +10,7 @@ from ..models import Device, Event, Result, User
 
 
 __all__ = ("devices_router",)
-devices_router = APIRouter(prefix="/devices", tags=["devices"])
+devices_router = APIRouter(prefix="/api/devices", tags=["devices"])
 
 
 @devices_router.get("/", summary="List all devices of the current user")

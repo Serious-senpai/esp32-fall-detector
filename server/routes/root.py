@@ -11,7 +11,7 @@ from ..models import Result, User
 
 
 __all__ = ("root_router",)
-root_router = APIRouter()
+root_router = APIRouter(prefix="/api")
 OAUTH2_SCHEME = OAuth2PasswordBearer(tokenUrl="login")
 INVALID_CREDENTIALS = HTTPException(
     status_code=status.HTTP_401_UNAUTHORIZED,

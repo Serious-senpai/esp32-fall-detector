@@ -22,7 +22,7 @@ services:
   devcontainer:
     build:
       context: ../..
-      dockerfile: .devcontainer/local/Dockerfile
+      dockerfile: .devcontainer/Dockerfile
     command: bash -c "sleep infinity"
     container_name: devcontainer
     ports:

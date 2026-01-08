@@ -12,16 +12,30 @@ services:
     image: postgres:16.10-alpine
     restart: unless-stopped
 
-  api-server:
+  server:
     build:
       context: .
-      dockerfile: Dockerfile
-    command: uvicorn server:app --host 0.0.0.0 --port 12110
-    container_name: api-server
+      dockerfile: server/Dockerfile
+    command: uvicorn server.app:app --host 0.0.0.0 --port 8000
+    container_name: server
     depends_on:
       - postgres
     environment:
       - DISCORD_BOT_TOKEN=${DISCORD_BOT_TOKEN}
+    hostname: server
     ports:
-      - "12110:12110"
+      - "8000:8000"
     working_dir: /app
+    restart: unless-stopped
+
+  web:
+    build:
+      context: .
+      dockerfile: web/Dockerfile
+    container_name: web
+    depends_on:
+      - server
+    hostname: web
+    ports:
+      - "3000:80"
+    restart: unless-stopped

@@ -11,7 +11,7 @@ from ..state import STATE
 
 
 __all__ = ("events_router",)
-events_router = APIRouter(prefix="/events", tags=["events"])
+events_router = APIRouter(prefix="/api/events", tags=["events"])
 
 
 class _PostBody(pydantic.BaseModel):

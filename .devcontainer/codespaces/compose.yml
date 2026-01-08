@@ -15,7 +15,7 @@ services:
   devcontainer:
     build:
       context: ../..
-      dockerfile: .devcontainer/codespaces/Dockerfile
+      dockerfile: .devcontainer/Dockerfile
     command: bash -c "sleep infinity"
     container_name: devcontainer
     volumes:
