@@ -37,5 +37,5 @@ services:
       - server
     hostname: web
     ports:
-      - "3000:80"
+      - "80:80"
     restart: unless-stopped
