@@ -71,7 +71,11 @@ export function DevicesPage() {
         <DashboardLayout>
             <div className="page-header">
                 <h1>Devices</h1>
-                <button className="btn btn-primary" onClick={() => setShowModal(true)}>
+                <button
+                    className="btn btn-primary"
+                    onClick={() => setShowModal(true)}
+                    style={{ marginLeft: '16px' }}
+                >
                     Add Device
                 </button>
             </div>

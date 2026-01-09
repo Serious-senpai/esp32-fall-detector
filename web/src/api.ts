@@ -79,7 +79,7 @@ class ApiClient {
 
     // User endpoints
     async registerUser(data: RegisterRequest): Promise<Result<User | null>> {
-        const response = await this.client.post<Result<User | null>>('/users', data);
+        const response = await this.client.post<Result<User | null>>('/users/', data);
         return response.data;
     }
 
@@ -90,7 +90,7 @@ class ApiClient {
 
     // Device endpoints
     async getDevices(): Promise<Result<Device[]>> {
-        const response = await this.client.get<Result<Device[]>>('/devices');
+        const response = await this.client.get<Result<Device[]>>('/devices/');
         return response.data;
     }
 
@@ -100,7 +100,7 @@ class ApiClient {
     }
 
     async createDevice(data: CreateDeviceRequest): Promise<Result<Device | null>> {
-        const response = await this.client.post<Result<Device | null>>('/devices', data);
+        const response = await this.client.post<Result<Device | null>>('/devices/', data);
         return response.data;
     }
 
