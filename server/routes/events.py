@@ -60,7 +60,7 @@ async def post(body: _PostBody) -> Result[Optional[Event]]:
             EmbedField(name="Category", value=str(e.category)),
         ]
         if e.accel_x is not None and e.accel_y is not None and e.accel_z is not None:
-            fields.append(EmbedField(name="Acceleration (m/s²)", value=f"{e.accel_x:.2f}, {e.accel_y:.2f}, {e.accel_z:.2f}", inline=True))
+            fields.append(EmbedField(name="Acceleration (g)", value=f"{e.accel_x:.2f}, {e.accel_y:.2f}, {e.accel_z:.2f}", inline=True))
         if e.gyro_x is not None and e.gyro_y is not None and e.gyro_z is not None:
             fields.append(EmbedField(name="Gyroscope (rad/s)", value=f"{e.gyro_x:.2f}, {e.gyro_y:.2f}, {e.gyro_z:.2f}", inline=True))
         if e.heart_rate_bpm is not None:
